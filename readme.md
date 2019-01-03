@@ -26,3 +26,21 @@ Comprender y aplcar los conceptos básicos de una aplicacion rest api con node, 
 
 2. Crear carpeta ./server/src
 3. Crear archivo ./server/src/index.html
+4. En el archivo tsconfig se deben configurar los siguientes parametros:
+    * `ES5 -> ES6`
+    * `"outDir":  [ruta_compilacion]`
+5. Configuracion de nodemon como dependncia de desarrollo.
+`npm i nodemon -D`
+6. Configurar comandos de autoamatizacion en package.json
+```
+{
+    ...
+    "scripts": {
+    "build": "tsc -w",
+    "dev": "nodemon build/index.js"
+  },
+}
+   
+```
+7. Instalación de @types/express como dependencia de desarrollo.
+`npm i @types/express` 
