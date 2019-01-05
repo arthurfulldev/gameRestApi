@@ -1,3 +1,36 @@
-<p>
-  game-form works!
-</p>
+<div class="col-md-6 pt-5 pb-5">
+    <form [formGroup]="game" (submit)="createGame()">
+        <div class="form-group">
+            <label for="inputTitle">Título</label>
+            <input formControlName="title" [(ngModel)]="gameData.title" type="text" class="form-control" id="inputTitle"
+                placeholder="Escribe el titulo del juego." autofocus="true">
+        </div>
+        <div class="form-group">
+            <label for="txtDescription">Descripción</label>
+            <textarea formControlName="description" [(ngModel)]="gameData.description" class="form-control" id="txtDescription"
+                placeholder="Describe el juego.."></textarea>
+        </div>
+        <div class="form-group">
+            <label for="inputImage">Imagen</label>
+            <input formControlName="image" [(ngModel)]="gameData.image" type="url" class="form-control" id="inputDescription"
+                placeholder="Escribe la url del la imagen juego">
+        </div>
+        <div class="d-flex flex-row-reverse">
+            <button class="btn btn-primary" type="submit" id="send-game" data-toggle="tooltip" data-placement="bottom" title="{{btnLabel}}"><i class="{{btnIcon}}"></i> {{btnLabel}}</button>
+        </div>
+    </form>
+</div>
+<div class="col-md-6 d-flex align-items-center justify-content-center">
+    <div class="card" style="width: 18rem;">
+        <img [src]="gameData.image == null ? 'assets/images/no-image-available.png': gameData.image" class="card-img-top"
+            alt="No se puede visualizar la imagen">
+        <div class="card-body">
+            <h5 class="card-title">{{gameData.title}}</h5>
+            <p class="card-text">{{gameData.description}}</p>
+            <div class="text-center">
+                <small class="text-center">Creado: {{gameData.created_at | date: 'short'}}</small><br>
+                <small class="text-center">Ultima modificación: {{gameData.updated_at | date: 'short'}}</small>
+            </div>
+        </div>
+    </div>
+</div>

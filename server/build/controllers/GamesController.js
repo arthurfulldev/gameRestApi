@@ -16,34 +16,34 @@ class GamesController {
     index(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let games = yield database_1.default.query('SELECT * FROM games');
-            res.json({ 'text': games });
+            res.json(games);
         });
     }
     show(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let { id } = req.params;
             let game = yield database_1.default.query('SELECT * FROM games WHERE id = ? LIMIT 1', [id]);
-            res.json({ 'data': game });
+            res.json(game);
         });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let game = yield database_1.default.query('INSERT INTO games set ?', [req.body]);
-            res.json({ 'message': 'Game has been created', 'game': game.insertId });
+            res.json({ 'message': `Game has been created in ${game.insertId} id` });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let { id } = req.params;
             let game = yield database_1.default.query('UPDATE games set ? WHERE id = ?', [req.body, id]);
-            res.json({ 'game': 'The game was update' });
+            res.json({ 'message': 'The game was update' });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let { id } = req.params;
-            let game = yield database_1.default.query('DELETE  FROM games WHERE id = ?', [id]);
-            res.json({ 'text': 'The game with id:  ' + req.params.id + ' has been removed' });
+            yield database_1.default.query('DELETE  FROM games WHERE id = ?', [id]);
+            res.json({ 'message': `The game with id: ${id} has been removed` });
         });
     }
 }

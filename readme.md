@@ -15,7 +15,8 @@ Comprender y aplcar los conceptos básicos de una aplicacion rest api con node, 
 + express@4.16.4
 + Git
 
-## Intalación y configuración.
+## Intalación y configuración SERVER.
+
 1. Creación de carpeta ./server.
 ```
     cd server
@@ -25,22 +26,34 @@ Comprender y aplcar los conceptos básicos de una aplicacion rest api con node, 
 ```
 
 2. Crear carpeta ./server/src
+
 3. Crear archivo ./server/src/index.html
+
 4. En el archivo tsconfig se deben configurar los siguientes parametros:
     * `ES5 -> ES6`
     * `"outDir":  [ruta_compilacion]`
-5. Configuracion de nodemon como dependncia de desarrollo.
-`npm i nodemon -D`
-6. Configurar comandos de autoamatizacion en package.json
+
+5. Configuracion devDependecies de desarrollo. *_la -D indica que se ejecutara solo en modo de desarrollo._*
 ```
+    npm i nodemon -D
+    npm i @types/cors -D
+    npm i @types/express -D
+    npm i @types/morgan -D
+```
+
+6. Configurar comandos de autoamatización en package.json
+``` 
 {
     ...
     "scripts": {
-    "build": "tsc -w",
-    "dev": "nodemon build/index.js"
-  },
+        "build": "tsc -w",
+        "dev": "nodemon build/index.js"
+    },
 }
-   
 ```
-7. Instalación de @types/express como dependencia de desarrollo.
-`npm i @types/express` 
+
+## Iniciar aplicativo REST
+Sera necesario iniciar tres consolas
+1. Correr angular en ./client: `npm start`
+2. Correr typescript en ./server: `npm run build`
+3. Corror Watcher en ./server:`npm dev`
