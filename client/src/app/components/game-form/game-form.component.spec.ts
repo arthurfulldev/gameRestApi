@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GameFormComponent } from './game-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('GameFormComponent', () => {
   let component: GameFormComponent;
@@ -8,7 +10,8 @@ describe('GameFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameFormComponent ]
+      declarations: [ GameFormComponent ],
+      imports: [ ReactiveFormsModule, HttpClientModule]
     })
     .compileComponents();
   }));

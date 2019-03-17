@@ -1,6 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 
-import { GamesService } from '../../services/games.service'
+import { GamesService } from '../../services/games.service';
 
 @Component({
   selector: 'app-game-list',
@@ -20,21 +20,19 @@ export class GameListComponent implements OnInit {
     this.listGames();
   }
 
-  public delete(id: string)
-  {
+  public delete(id: string) {
       this.gamesService.deleteGame(id).subscribe(
-        success =>{
+        success => {
             console.log(success);
         },
         error => {
             console.log(error);
         }
-      )
+      );
       this.listGames();
   }
 
-  private listGames()
-  {
+  private listGames() {
     return this.gamesService.getGames().subscribe(
       ( success ) => {
           this.games = success;
@@ -42,7 +40,6 @@ export class GameListComponent implements OnInit {
       ( error ) => {
           console.log( error );
       }
-    )
+    );
   }
-
 }
