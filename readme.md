@@ -4,7 +4,7 @@
 Este apliactivo consite en crear una aplicacion que se capaz de listar videojuegos, crear un videojuego, editar un videojuego y eliminar un videojuego.
 
 ## Objetivo.
-Comprender y aplcar los conceptos básicos de una aplicacion rest api con node, mysql y angular.
+Comprender y aplicar los conceptos básicos de una aplicacion rest api con node, mysql y angular.
 
 ## Herramientas:
 + Node 8.11.4
